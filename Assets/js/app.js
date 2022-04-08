@@ -14,7 +14,7 @@ function changeBlockColor() {
   let hour = moment().hours();
 
   $(".hourBlock").each(function () {
-    let currentHour = parseInt($(this).attr("id").split("hour")[1]);
+    let currentHour = document.getElementsByClassName("currentTime");
 
     if (currentHour > hour) {
       $(this).addClass("future");
@@ -27,8 +27,8 @@ function changeBlockColor() {
 }
 // click save button to store appointment data
 saveButton.on("click", function () {
-  let text = $(this).siblings(".description").val();
-  let time = $(this).parent().attr("id");
-});
+  let text = document.getElementsByClassName("textAreaInput");
+  let time = document.getElementsByClassName("currentTime");
 
-console.log(localStorage);
+  localStorage.setItem(text, time);
+});
